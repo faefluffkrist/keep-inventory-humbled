@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "keepinventoryhumbled",
+  "version": "0.3.0",
+  "name": "Keep Inventory Humbled",
+  "description": "Keep your essentials. Death still has a price.",
+  "authors": [
+    "Sabrina de Rose"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.faefluffkrist.humbled.Humbled"
+    ],
+    "modmenu": [
+      "com.faefluffkrist.humbled.client.HumbledModMenu"
+    ]
+  },
+  "mixins": [
+    "humbled.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "26.2",
+    "java": ">=25"
+  },
+  "icon": "assets/keepinventoryhumbled/icon.png",
+  "suggests": {
+    "modmenu": ">=20.0.2"
+  }
+}

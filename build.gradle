@@ -1,0 +1,23 @@
+plugins { id 'net.fabricmc.fabric-loom' version '1.17.21' }
+version = '0.3.0'
+group = 'com.faefluffkrist'
+base { archivesName = 'keep-inventory-humbled' }
+repositories { mavenCentral(); maven { url = 'https://maven.terraformersmc.com/releases/' } }
+dependencies {
+ minecraft 'com.mojang:minecraft:26.2'
+ implementation 'net.fabricmc:fabric-loader:0.19.3'
+ compileOnly 'com.terraformersmc:modmenu:20.0.2'
+}
+java { sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25; withSourcesJar() }
+tasks.withType(JavaCompile).configureEach { options.release = 25 }
+
+// The standalone checks have a main entry point, rather than JUnit annotations.
+tasks.named('test') { enabled = false }
+tasks.register('deathMathTest', JavaExec) {
+ dependsOn tasks.named('testClasses')
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.faefluffkrist.humbled.DeathMathTest'
+}
+tasks.named('check') { dependsOn tasks.named('deathMathTest') }
+
+jar { from('LICENSE') }

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.faefluffkrist.humbled.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "PlayerMixin",
+    "ServerPlayerMixin",
+    "ItemEntityMixin",
+    "HopperMixin",
+    "MinecraftServerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
