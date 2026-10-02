@@ -1,0 +1,104 @@
+name: Bug Report
+description: Report a problem with Keep Inventory Humbled
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue with Keep Inventory Humbled.
+
+        Please provide as much information as possible. Logs are especially helpful for crashes or unexpected behavior.
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: Keep Inventory Humbled Version
+      description: Which version of the mod are you using?
+      placeholder: "Example: 0.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      placeholder: "Example: 26.2"
+    validations:
+      required: true
+
+  - type: input
+    id: fabric-loader
+    attributes:
+      label: Fabric Loader Version
+      description: Enter your Fabric Loader version.
+    validations:
+      required: true
+
+  - type: input
+    id: fabric-api
+    attributes:
+      label: Fabric API Version
+      description: Enter your Fabric API version, if applicable.
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem as clearly as possible.
+      placeholder: Tell us what went wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Explain how to reproduce the issue.
+      placeholder: |
+        1. Start a world
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other Mods
+      description: List other installed mods that may be relevant. A full mod list is also welcome.
+      placeholder: Paste your mod list here.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or Crash Report
+      description: Paste relevant logs here or attach the file.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Add screenshots, videos, configuration details, or anything else that may help.
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before Submitting
+      options:
+        - label: I have checked that I am using a supported version of Keep Inventory Humbled.
+          required: true
+        - label: I have searched existing issues to make sure this has not already been reported.
+          required: true
