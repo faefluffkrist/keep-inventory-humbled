@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "id": "keepinventoryhumbled",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "name": "Keep Inventory Humbled",
   "description": "Keep your essentials. Death still has a price.",
   "authors": [
-    "Sabrina de Rose"
+    "faefluffkrist"
   ],
   "license": "MIT",
   "environment": "*",

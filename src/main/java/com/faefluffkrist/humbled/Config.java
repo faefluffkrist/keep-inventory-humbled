@@ -56,6 +56,9 @@ environmentalArmorMultiplier=.25
 environmentalUseVanillaBypassesArmorTag=true
 environmentalDamageTypes=minecraft:on_fire,minecraft:in_wall,minecraft:cramming,minecraft:outside_border,minecraft:drown,minecraft:fall,minecraft:ender_pearl,minecraft:fly_into_wall,minecraft:magic,minecraft:indirect_magic,minecraft:dragon_breath,minecraft:wither,minecraft:freeze
 environmentalExcludedDamageTypes=
+# Evoker fangs and harmful splash-potion damage use the regular death armor penalty.
+# Poison from food, animals, drinks, arrows and lingering potions stays environmental.
+hostileMagicUsesRegularArmorPenalty=true
 
 # PERCENTAGE halves the combined value "levels + XP bar fraction" by default.
 # FIXED instead removes experienceFixedLevelsLost + experienceFixedBarLost.
@@ -68,7 +71,7 @@ experienceRecoveryEnabled=true
 lostExperienceRecoverable=.10
 experienceRecoveryItem=minecraft:experience_bottle
 # 0 = no despawn. Otherwise ticks while the pickup's chunk is loaded.
-experienceRecoveryLifetimeTicks=0
+experienceRecoveryLifetimeTicks=24000
 experienceRecoveryInvulnerable=true
 experienceRecoveryGlowing=true
 
@@ -92,7 +95,7 @@ difficultyScalesEnvironmentalMultiplier=false
   keepBindingItems, destroyNonDurableBindingItems, armorEnabled, thresholdEnabled, breakSound,
   unbreakingEnabled, environmentalTag, xpEnabled, recoveryEnabled, recoveryInvulnerable,
   recoveryGlowing, difficultyEnabled, scaleArmor, scaleThreshold, scaleXp, scaleRecovery,
-  scaleUnbreaking, scaleEnvironmental;
+  scaleUnbreaking, scaleEnvironmental, hostileMagicRegular;
  public final double armorLoss, breakAt, soundVolume, soundPitch, protection1, protection2,
   protection3, protectionExtra, environmentalMultiplier, xpLoss, fixedLevels, fixedBar,
   recovery, peaceful, easy, normal, hard;
@@ -117,6 +120,7 @@ difficultyScalesEnvironmentalMultiplier=false
   if (protection2 < protection1 || protection3 < protection2) throw new IllegalArgumentException("Unbreaking protection must not decrease at higher levels");
   environmentalMode=choice(p,"environmentalArmorMode",EnvironmentalMode.class);
   environmentalMultiplier=fraction(p,"environmentalArmorMultiplier"); environmentalTag=bool(p,"environmentalUseVanillaBypassesArmorTag");
+  hostileMagicRegular=bool(p,"hostileMagicUsesRegularArmorPenalty");
   environmentalTypes=ids(p,"environmentalDamageTypes"); environmentalExcluded=ids(p,"environmentalExcludedDamageTypes");
   xpEnabled=bool(p,"experienceLossEnabled"); xpMode=choice(p,"experienceLossMode",ExperienceMode.class);
   xpLoss=fraction(p,"experienceDeathLoss"); fixedLevels=number(p,"experienceFixedLevelsLost",0,1000000);

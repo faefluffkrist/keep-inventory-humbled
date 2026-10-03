@@ -1,5 +1,5 @@
 plugins { id 'net.fabricmc.fabric-loom' version '1.17.21' }
-version = '0.3.0'
+version = '0.3.2'
 group = 'com.faefluffkrist'
 base { archivesName = 'keep-inventory-humbled' }
 repositories { mavenCentral(); maven { url = 'https://maven.terraformersmc.com/releases/' } }

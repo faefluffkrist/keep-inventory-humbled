@@ -13,7 +13,11 @@ import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 public final class DeathRules {
  private DeathRules() { }
  public static boolean environmental(DamageSource source,Config c) {
+  return environmental(source,c,null);
+ }
+ private static boolean environmental(DamageSource source,Config c,ServerPlayer target) {
   if (source==null) return false;
+  if (c.hostileMagicRegular && SplashDamage.regularPenalty(source,target)) return false;
   String id=source.typeHolder().unwrapKey().map(k->k.identifier().toString()).orElse("");
   if (c.environmentalExcluded.contains(id)) return false;
   return c.environmentalTypes.contains(id) || (c.environmentalTag && source.is(DamageTypeTags.BYPASSES_ARMOR));
@@ -24,7 +28,7 @@ public final class DeathRules {
   double difficulty=c.difficulty(level.getDifficulty().getId());
   double armorRate=c.penalty(c.armorLoss,difficulty,c.scaleArmor);
   double threshold=c.penalty(c.breakAt,difficulty,c.scaleThreshold);
-  if (environmental(state.humbled$deathSource(),c)) {
+  if (environmental(state.humbled$deathSource(),c,p)) {
    armorRate *= switch(c.environmentalMode) {
     case REGULAR -> 1;
     case NONE -> 0;

@@ -7,7 +7,11 @@
     "ServerPlayerMixin",
     "ItemEntityMixin",
     "HopperMixin",
-    "MinecraftServerMixin"
+    "MinecraftServerMixin",
+    "SplashPotionMixin",
+    "EffectOriginMixin",
+    "EffectOriginSaveMixin",
+    "EvokerFangsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
